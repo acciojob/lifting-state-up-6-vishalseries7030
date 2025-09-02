@@ -8,7 +8,7 @@ const TodoList = ({ todos, handleComplete }) => {
         {todos.map((todo, index) => (
           <li key={index}>
             {todo.task}{" "}
-            {!todo.completed && (   // button tabhi dikhega jab completed === false
+            {!todo.completed && (
               <button onClick={() => handleComplete(index)}>Complete</button>
             )}
           </li>
