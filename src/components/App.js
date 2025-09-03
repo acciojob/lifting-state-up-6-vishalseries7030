@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import TodoList from "./TodoList";
-import './../styles/App.css';
+import "./../styles/App.css";
 
 const App = () => {
   const [todos, setTodos] = useState([
@@ -10,13 +10,14 @@ const App = () => {
   ]);
 
   const handleComplete = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].completed = true;
+    const newTodos = todos.map((todo, i) =>
+      i === index ? { ...todo, completed: true } : todo
+    );
     setTodos(newTodos);
   };
 
   return (
-    <div className="App">
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
       <h1>Parent Component</h1>
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
