@@ -11,7 +11,7 @@ const TodoList = ({ todos, handleComplete }) => {
             {!todo.completed ? (
               <button
                 onClick={() => handleComplete(index)}
-                data-testid={`complete-btn-${index}`} 
+                data-testid={`complete-btn-${index}`} // Cypress ke liye
               >
                 Complete
               </button>
