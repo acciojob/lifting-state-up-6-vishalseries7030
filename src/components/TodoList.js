@@ -6,10 +6,19 @@ const TodoList = ({ todos, handleComplete }) => {
       <h2>Child Component</h2>
       <ul>
         {todos.map((todo, index) => (
-          <li key={index}>
+          <li key={index} style={{ marginBottom: "10px" }}>
             {todo.task}{" "}
-            {!todo.completed && (
-              <button onClick={() => handleComplete(index)}>Complete</button>
+            {!todo.completed ? (
+              <button
+                onClick={() => handleComplete(index)}
+                data-testid={`complete-btn-${index}`} 
+              >
+                Complete
+              </button>
+            ) : (
+              <span style={{ color: "green", fontWeight: "bold" }}>
+                Completed
+              </span>
             )}
           </li>
         ))}
