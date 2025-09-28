@@ -4,16 +4,16 @@ import "./../styles/App.css";
 
 const App = () => {
   const [todos, setTodos] = useState([
-    { task: "Learn React", completed: false },
-    { task: "Build a React app", completed: false },
-    { task: "Deploy the React app", completed: false },
+    { id: 1, task: "Learn React", completed: false },
+    { id: 2, task: "Build a React app", completed: false },
+    { id: 3, task: "Deploy the React app", completed: false },
   ]);
 
-  const handleComplete = (index) => {
-    const newTodos = todos.map((todo, i) =>
-      i === index ? { ...todo, completed: true } : todo
+  const handleComplete = (id) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: true } : todo
     );
-    setTodos(newTodos);
+    setTodos(updatedTodos);
   };
 
   return (
