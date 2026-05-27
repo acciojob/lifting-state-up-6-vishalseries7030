@@ -11,15 +11,22 @@ const App = () => {
 
   const handleComplete = (id) => {
     const updatedTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, completed: true } : todo
+      todo.id === id
+        ? { ...todo, completed: true }
+        : todo
     );
+
     setTodos(updatedTodos);
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div>
       <h1>Parent Component</h1>
-      <TodoList todos={todos} handleComplete={handleComplete} />
+
+      <TodoList
+        todos={todos}
+        handleComplete={handleComplete}
+      />
     </div>
   );
 };
